@@ -4,6 +4,8 @@ import PostsIndex from '../views/PostsIndex.vue';
 import SignupView from "../views/SignupView.vue";
 import Login from "../views/LoginView.vue";
 import Logout from "../views/LogoutView.vue";
+import PostsNew from '../views/PostsNew.vue';
+import PostsShow from "../views/PostsShow.vue";
 
 const routes = [
   {
@@ -33,7 +35,16 @@ const routes = [
   },
   {  path: '/posts',
      component: PostsIndex 
-  }
+  },
+  {  path: '/posts/new',
+     name: "posts-new", 
+     component: PostsNew 
+  },
+  {  path: '/posts/:id',
+     name: "posts-show", 
+     component: PostsShow 
+  },
+
 ]
 
 const router = createRouter({
