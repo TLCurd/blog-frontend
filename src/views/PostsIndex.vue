@@ -37,6 +37,7 @@ export default {
         Content: {{ post.body }}
       </h2>
       <br />
+      <router-link v-bind:to="`/posts/${post.id}`">More details</router-link>
     </div>
   </div>
 </template>
