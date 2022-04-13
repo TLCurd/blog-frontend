@@ -3,7 +3,11 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newPostParams: {},
+      newPostParams: {
+        title: "",
+        body: "",
+        image: ""
+      },
       errors: [],
     };
   },
@@ -40,6 +44,14 @@ export default {
       <p>
         Body:
         <input type="text" v-model="newPostParams.body" />
+        <small v-if="newPostParams.body.length <= 450 && newPostParams.body.length > 0">{{
+          500 - newPostParams.body.length
+        }} characters remaining</small>
+        <small v-if="newPostParams.body.length >= 450 && newPostParams.body.length <= 500" class="text-warning">{{
+          500 -
+            newPostParams.body.length
+        }} characters remaining</small>
+        <small v-if="newPostParams.body.length > 500" class="text-danger">Post body is too long</small>
       </p>
 
       <p>
